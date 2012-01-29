@@ -1,0 +1,24 @@
+
+/* Game colors */
+/* blue-black created by Luke Larsen, coded by Benjam Welker */
+
+/*
+	all the layout for the webpages are specified in the layout.css
+	file.  the colors have been separated out for ease of customization
+*/
+
+// set our default styles for blue_black
+
+$main_back_color: #282828 !default;
+$main_highlight_color: #165AA6 !default;
+
+$highlight_color: #3380D7 !default;
+
+$header_border_bottom: 1px solid #2473E3 !default;
+
+$nav_hover_background_color: rgba(12, 14, 40, 0.5) !default;
+
+$footer_background_color: $main_highlight_color / 2 !default;
+
+
+@import "c_template";

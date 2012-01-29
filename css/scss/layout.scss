@@ -1,0 +1,721 @@
+
+/* Pharaoh layout */
+
+/*
+	all the colors for the styles are listed in the
+	c_{color_name}.css file.  they are pulled out for
+	ease of customization.  set your color by entering
+	the name of the css file you wish to use in the
+	config.inc.php file.
+*/
+
+@import "reset";
+
+
+html, body {
+	background-color: #27282B;
+	color: #FFF;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	line-height: 1.5;
+	font-weight: normal;
+	font-family: Calibri, sans-serif;
+}
+
+
+a {
+	font-weight: bold;
+	text-decoration: underline;
+	color: #FFF;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&.help {
+		border: 1px solid #777;
+		font-weight: bold;
+		padding: 0 4px;
+		text-decoration: none;
+
+		&:hover {
+			border: 1px solid #999;
+		}
+	}
+}
+
+
+abbr,
+acronym {
+	border-bottom: 1px dashed #777;
+	cursor: help;
+}
+
+
+hr {
+	width: 90%;
+	margin: 1em auto;
+
+	&.fancy {
+		height: 5px;
+		margin: 1em;
+		background-color: #999;
+		border: 1px solid #777;
+	}
+}
+
+
+p {
+	margin: 0.5em 0 1em;
+	line-height: 1.2;
+}
+
+
+fieldset {
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid #555;
+}
+
+
+legend {
+	font-weight: bold;
+	line-height: 1;
+	padding: 0 5px;
+}
+
+
+.warning, .warning * {
+	color: #B00;
+	font-weight: bold;
+}
+
+
+.notice, .notice * {
+	color: #DD0;
+	font-weight: bold;
+}
+
+
+.highlight, .highlight * {
+	color: #B00;
+	font-weight: bold;
+}
+
+
+.instruction, .instruction * {
+	color: #AAA;
+}
+
+
+.caption {
+	margin: 1ex 0;
+}
+
+
+.clr {
+	clear: both !important;
+	float: none !important;
+}
+
+
+#date {
+	font-size: 0.85em;
+	font-weight: bold;
+	white-space: nowrap;
+	text-align: right;
+}
+
+
+header {
+	min-height: 60px;
+	width: 100%;
+	margin: 0 0 10px;
+	padding: 5px;
+	position: relative;
+
+	border-bottom: 1px solid #CE3E47;
+
+	background-color: #670B0C;
+	background: -o-radial-gradient(50% 100%, ellipse cover, #A72819 30%, #670B0C 80%) #670B0C;
+	background: -ms-radial-gradient(50% 100%, ellipse cover, #A72819 30%, #670B0C 80%) #670B0C;
+	background: -moz-radial-gradient(50% 100%, ellipse cover, #A72819 30%, #670B0C 80%) #670B0C;
+	background: -webkit-radial-gradient(50% 100%, ellipse cover, #A72819 30%, #670B0C 80%) #670B0C;
+	background: radial-gradient(50% 100%, ellipse cover, #A72819 30%, #670B0C 80%) #670B0C;
+
+	-o-box-shadow: 0px 3px 16px #000000, 0px -3px 0px rgba(0, 0, 0, 0.4) inset;
+	-ms-box-shadow: 0px 3px 16px #000000, 0px -3px 0px rgba(0, 0, 0, 0.4) inset;
+	-moz-box-shadow: 0px 3px 16px #000000, 0px -3px 0px rgba(0, 0, 0, 0.4) inset;
+	-webkit-box-shadow: 0px 3px 16px #000000, 0px -3px 0px rgba(0, 0, 0, 0.4) inset;
+	box-shadow: 0px 3px 16px #000000, 0px -3px 0px rgba(0, 0, 0, 0.4) inset;
+
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+h1 {
+	height: 45px;
+	margin: 0 0 3px;
+	padding: 0;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-indent: -9999em;
+
+	a {
+		background: transparent url(../images/Pharaoh.png) no-repeat scroll 15px center;
+		display: block;
+		text-decoration: none;
+		height: 100%;
+	}
+}
+
+
+nav.site {
+	float: right;
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	margin: 10px;
+
+	a {
+		text-decoration: none;
+		padding: 3px 10px;
+
+		color: #DDD;
+
+		font-weight: bold;
+		text-shadow: #000 0 1px 1px;
+
+		&:hover {
+			color: #FFF;
+
+			background: -o-radial-gradient(50% 90%, ellipse closest-corner, rgba(255, 255, 255, 0.35) 30%, rgba(255, 255, 255, 0.01) 70%) transparent;
+			background: -ms-radial-gradient(50% 90%, ellipse closest-corner, rgba(255, 255, 255, 0.35) 30%, rgba(255, 255, 255, 0.01) 70%) transparent;
+			background: -moz-radial-gradient(50% 90%, ellipse closest-corner, rgba(255, 255, 255, 0.35) 30%, rgba(255, 255, 255, 0.01) 70%) transparent;
+			background: -webkit-radial-gradient(50% 100%, 80% 20%, rgba(255, 255, 255, 0.35) 30%, rgba(255, 255, 255, 0.01) 70%) transparent;
+			background: radial-gradient(50% 100%, 80% 20%, rgba(255, 255, 255, 0.35) 30%, rgba(255, 255, 255, 0.01) 70%) transparent;
+		}
+	}
+}
+
+
+*.box {
+	display: block;
+	margin: 0;
+	padding: 1px;
+
+	-o-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+
+	background-color: #000000;
+	background: -o-linear-gradient(#232323, #000000) #000000;
+	background: -ms-linear-gradient(#232323, #000000) #000000;
+	background: -moz-linear-gradient(#232323, #000000) #000000;
+	background: -webkit-linear-gradient(#232323, #000000) #000000;
+	background: linear-gradient(#232323, #000000) #000000;
+
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	& > * {
+		padding: 5px;
+		display: block;
+		margin: 0;
+		height: 100%;
+		overflow: auto;
+
+		-o-border-radius: 2px;
+		-ms-border-radius: 2px;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+
+		background-color: #2E2F34;
+		background: -o-linear-gradient(#2E2F34, #212225) #2E2F34;
+		background: -ms-linear-gradient(#2E2F34, #212225) #2E2F34;
+		background: -moz-linear-gradient(#2E2F34, #212225) #2E2F34;
+		background: -webkit-linear-gradient(#2E2F34, #212225) #2E2F34;
+		background: linear-gradient(#2E2F34, #212225) #2E2F34;
+
+		-o-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1) inset, 0px -2px 1px rgba(0, 0, 0, 0.2) inset;
+		-ms-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1) inset, 0px -2px 1px rgba(0, 0, 0, 0.2) inset;
+		-moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1) inset, 0px -2px 1px rgba(0, 0, 0, 0.2) inset;
+		-webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1) inset, 0px -2px 1px rgba(0, 0, 0, 0.2) inset;
+		box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1) inset, 0px -2px 1px rgba(0, 0, 0, 0.2) inset;
+
+		-o-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+}
+
+
+aside#nav {
+	float: left;
+
+	nav {
+		margin: 10px;
+		width: 160px;
+		float: left;
+		clear: left;
+		margin-bottom: 2em;
+	}
+
+	#mygames_title {
+		clear: left;
+		margin: 0 10px 0;
+		white-space: nowrap;
+		font-weight: bold;
+	}
+}
+
+
+nav#menu ,
+nav#mygames {
+	a {
+		text-align: right;
+		font-size: 0.85em;
+		padding: 6px 5px;
+		width: 100%;
+		white-space: nowrap;
+		margin: 0;
+		font-weight: bold;
+		text-decoration: none;
+		display: block;
+		color: #DDD;
+		background-color: transparent;
+		border-bottom: 1px solid #333;
+
+		-o-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+
+		&:hover {
+			color: #FFF;
+			background-color: rgba(40, 14, 12, 0.5);
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		text-indent: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none outside none;
+
+		&.active {
+			a {
+				color: inherit;
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+		}
+
+		&:first-child a {
+			-o-border-radius: 2px 2px 0 0;
+			-ms-border-radius: 2px 2px 0 0;
+			-moz-border-radius: 2px 2px 0 0;
+			-webkit-border-radius: 2px 2px 0 0;
+			border-radius: 2px 2px 0 0;
+		}
+
+		&:last-child a {
+			border-bottom: 0;
+			-o-border-radius: 0 0 2px 2px;
+			-ms-border-radius: 0 0 2px 2px;
+			-moz-border-radius: 0 0 2px 2px;
+			-webkit-border-radius: 0 0 2px 2px;
+			border-radius: 0 0 2px 2px;
+		}
+
+		span.sep {
+			color: #666;
+		}
+	}
+}
+
+
+nav#mygames {
+	a {
+		white-space: normal;
+	}
+
+	.finished a { color: #999; }
+	.playing a { color: #B00; }
+	.my_turn a { color: #FF0; }
+	.none a { color: #FFF; }
+}
+
+
+aside#info {
+	float: right;
+	width: 160px;
+
+	#chatbox {
+		float: right;
+		width: 160px;
+		padding: 5px;
+		margin: 3px;
+		background-color: #EEE;
+		border: 1px solid #777;
+
+		input {
+			width: 95%;
+		}
+	}
+
+	#chats {
+		height: 300px;
+	}
+
+	.active {
+		position: relative;
+		top: 0;
+		right: 0;
+		width: 500px;
+	}
+}
+
+
+div#notes {
+	float: right;
+	width: 200px;
+	margin: 10px;
+
+	&.box > * {
+		min-height: 300px;
+	}
+}
+
+
+#chatbox input[type=text] {
+	width: 90%;
+
+	#game_page & {
+		width: auto;
+	}
+}
+
+
+h2 {
+	font-size: 100%;
+	font-weight: bold;
+	margin-bottom: 1ex;
+	border-bottom: 1px solid #777;
+}
+
+
+.type {
+	font-size: smaller;
+	padding-left: 2em;
+
+	.number {
+		font-weight: bold;
+		margin-right: 2em;
+	}
+
+	a {
+		margin: 0 2em;
+	}
+}
+
+
+#content {
+	margin: 20px 220px 20px 180px;
+	position: relative;
+
+	&.box > * {
+		min-height: 300px;
+	}
+
+	&.full {
+		margin: 5px;
+	}
+
+	.sidebar {
+		float: right;
+		width: 300px;
+		margin-top: 10px;
+	}
+
+	form {
+		.buttons {
+			#delete {
+				float: right;
+			}
+
+			.prevnext {
+				margin-bottom: 20px;
+
+				span {
+					padding: 0 10px;
+				}
+			}
+		}
+	}
+
+	#recipient_list {
+		margin-top: 20px;
+	}
+
+	&.msg {
+		width: 850px;
+		margin: auto;
+	}
+}
+
+
+.stats {
+	width: 150px;
+	float: left;
+	margin: 3px;
+}
+
+
+#index_page {
+	.tableholder {
+		max-height: 300px;
+		overflow-y: auto;
+	}
+
+	#chatbox {
+		border: 1px solid #777;
+
+		input[type=text] {
+			width: 99%;
+		}
+	}
+
+	#chats {
+		border-top: 1px solid #777;
+		max-height: 500px;
+		overflow: auto;
+
+		dt {
+			height: 50px;
+			width: 150px;
+			float: left;
+			border-bottom: 3px solid #777;
+			padding: 5px;
+			margin: 0 20px 5px 0;
+			position: relative;
+			text-align: right;
+			background: transparent;
+			font-weight: bold;
+		}
+
+		dd {
+			min-height: 50px;
+			border-bottom: 1px solid #AAA;
+			padding: 5px 5px 6px 5px;
+			margin: 0 0 6px 0;
+		}
+
+		img {
+			float: left;
+		}
+
+		span {
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+			font-size: 80%;
+			font-weight: normal;
+		}
+	}
+}
+
+
+h2.subject,
+p.message {
+	width: 70ex;
+}
+
+
+.sender {
+	margin-left: 3em;
+	font-size: smaller;
+}
+
+
+.link_date {
+	float: right;
+	text-align: right;
+	width: 300px;
+
+	a {
+		float: left;
+	}
+}
+
+
+#recipient_list {
+	ul {
+		margin:10px;
+	}
+
+	.unread {
+		font-weight: bold;
+	}
+
+	.deleted {
+		text-decoration: line-through;
+	}
+}
+
+
+.action select {
+	float: right;
+}
+
+
+#footerspacer {
+	height: 50px;
+	clear: both;
+}
+
+
+footer {
+	font-size: 0.9em;
+	font-weight: bold;
+	line-height: 26px;
+	clear: both;
+	padding: 3px 0;
+	left: 0;
+	z-index: 100;
+	position: fixed;
+	bottom: 0;
+	left: -25%; /* keep side shadows from showing */
+	width: 150%;
+	padding: 15px 5px 5px;
+	text-align: center;
+
+	span {
+		margin: 0 2em;
+	}
+
+	p {
+		margin: 0;
+		padding: 0;
+		line-height: 130%;
+	}
+
+	color: #DDD;
+	background-color: #670B0C;
+
+	-o-box-shadow: 0px 3px 16px #000000 inset;
+	-ms-box-shadow: 0px 3px 16px #000000 inset;
+	-moz-box-shadow: 0px 3px 16px #000000 inset;
+	-webkit-box-shadow: 0px 3px 16px #000000 inset;
+	box-shadow: 0px 3px 16px #000000 inset;
+
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+.notice {
+	font-weight: bold;
+}
+
+
+.afterthought {
+	font-size: 0.85em;
+	font-weight: normal;
+}
+
+
+.instruction {
+	margin: 0 0 10px 10px;
+	font-size: 0.85em;
+	line-height: 11px;
+}
+
+
+ul.settings {
+	li {
+		float: left;
+		width: 100%;
+	}
+
+	label {
+		clear: left;
+	}
+}
+
+
+#buttons {
+	float: right;
+	margin-right: 1px;
+
+	li {
+		float: left;
+		margin-left: 1px;
+	}
+
+	a {
+		display: block;
+		padding: 0 1em;
+		border: 1px solid #333;
+		border-width: 0 1px;
+		margin: 0 -1px;
+	}
+}
+
+
+.clone {
+	display: none;
+	visibility: hidden;
+}
+
+
+div.help {
+	padding: 10px;
+
+	ol,
+	ul {
+		text-indent: -1em;
+		margin: 0 0 1ex 2em;
+	}
+
+	li {
+		text-indent: -1em;
+		margin-bottom: 1ex;
+
+		strong {
+			color: #F00;
+		}
+	}
+
+	table {
+		width: auto;
+		margin: 0 auto;
+	}
+}
+
+
+@import "game_layout";
+@import "datatable";
+@import "forms";
+

@@ -1,0 +1,48 @@
+
+/* Pharaoh color style */
+
+/*
+	game color style sheet template
+*/
+
+// set our default styles for red_black
+
+$history_active_color: #FFF !default;
+$history_active_background_color: #444 !default;
+
+$history_replay_border: 1px solid #555 !default;
+$history_replay_hover_border_color: #AAA !default;
+
+$history_replay_disabled_color: #AAA !default;
+$history_replay_disabled_border_color: #333 !default;
+
+
+// now make the styles
+
+#history {
+	table {
+		td {
+			&.active,
+			&:hover {
+				background-color: $history_active_background_color;
+				color: $history_active_color;
+			}
+		}
+	}
+
+	div div {
+		span {
+			border: $history_replay_border;
+
+			&:hover {
+				border-color: $history_replay_hover_border_color;
+			}
+
+			&.disabled {
+				color: $history_replay_disabled_color;
+				border-color: $history_replay_disabled_border_color;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,29 @@
+TODO
+------------------
+
+- player registered, the date showed Nov XX -0001 ???
+	when I went to the invite page, the player got deleted due to
+	45 days or whatever... so find out why date is so far out of whack
+
+- send email on player registration approval
+
+- admin player delete is failing, fix it
+
+- sync fixes from pharaoh, as well as new layout
+
+- don't send out "your turn" email after opponent resignation
+
+- port ajax_helper to ajax functions and only have logic switches
+	in ajax_helper file
+
+- store finished games
+
+- emails are still sending improper data
+	- started is showing game creators name
+		may need to split the call to change the name for each
+
+- don't show success messages if email is not sent
+
+- preserve spaces in chats (copy code from messages) (port to WR)
+
+- search for TODO and fix all found

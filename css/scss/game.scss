@@ -1,0 +1,100 @@
+/*
+	Game page specific CSS
+*/
+
+
+@import "board";
+
+
+#contents {
+	margin: 10px;
+}
+
+#chatbox {
+	margin-left: 732px;
+}
+
+#chats {
+	height: 450px;
+}
+
+#game_page {
+	#chatbox {
+		input[type=text] {
+			width: 80%;
+		}
+	}
+}
+
+#board_wrapper {
+	float: left;
+	width: 550px;
+	margin-left: 5px;
+}
+
+#board {
+	width: 550px;
+	height: 450px;
+}
+
+#history {
+	float: left;
+	width: 170px;
+
+	table {
+		margin: 0;
+
+		td {
+			padding: 0 5px;
+			font-size: 1.1em;
+			line-height: 130%;
+
+			&.active,
+			&:hover {
+				font-weight: bold;
+				background-color: #444;
+				color: #FFF;
+			}
+
+			&.turn {
+				width: 1%;
+				text-align: right;
+			}
+		}
+	}
+
+	div div {
+		margin-bottom: 2px;
+		text-align: center;
+
+		span {
+			padding: 2px 5px 1px;
+			border: 1px solid #555;
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			cursor: pointer;
+
+			&:hover {
+				border-color: #AAA;
+			}
+
+			&.disabled {
+				color: #AAA;
+				border-color: #333;
+				cursor: default;
+			}
+		}
+	}
+}
+
+form#game {
+	clear: both;
+	text-align: center;
+	padding-top: 20px;
+}
+
+#setup {
+	display: none;
+}
+

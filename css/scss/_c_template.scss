@@ -1,0 +1,303 @@
+
+/* Pharaoh color style */
+
+/*
+	color style sheet template
+*/
+
+// set our default styles for red_black
+
+$text_color: #FFF !default;
+$link_color: $text_color !default;
+$background_color: #27282B !default;
+
+$basic_border: 1px solid #777 !default;
+$h2_border: $basic_border !default;
+
+$main_back_color: #670B0C !default;
+$main_highlight_color: #A72819 !default;
+$main_shadow_color: #000 !default;
+
+$main_link_color: #DDD !default;
+$main_link_hover_color: #FFF !default;
+
+$help_border: $basic_border !default;
+$help_hover_border: 1px solid #999 !default;
+
+$abbr_border: 1px dashed #777;
+
+$hr_fancy_back: #999 !default;
+$hr_fancy_border: $basic_border;
+
+$fieldset_border: 1px solid #555 !default;
+
+$warning_color: #B00 !default;
+$notice_color: #DD0 !default;
+$highlight_color: #B00 !default;
+
+$instruction_color: #AAA !default;
+
+$header_background_color: $main_back_color !default;
+$header_highlight_color: $main_highlight_color !default;
+$header_border_bottom: 1px solid #CE3E47 !default;
+
+$header_h1_height: 45px !default;
+$header_logo: url(../images/Pharaoh.png) !default;
+
+$site_nav_link_color: $main_link_color !default;
+$site_nav_link_hover_color: $main_link_hover_color !default;
+$site_nav_text_shadow: $main_shadow_color 0 1px 1px !default;
+$site_nav_hover_shadow_color: rgba(255, 255, 255, 0.35) !default;
+$site_nav_hover_edge_shadow_color: rgba(255, 255, 255, 0.01) !default;
+
+$box_border_gradient_background_color: $main_shadow_color !default;
+$box_border_gradient_highlight_color: #232323 !default;
+$box_gradient_background_color: #2E2F34 !default;
+$box_gradient_highlight_color: #212225 !default;
+$box_highlight_top_color: rgba(255, 255, 255, 0.1) !default;
+$box_highlight_bottom_color: rgba(0, 0, 0, 0.2) !default;
+
+$nav_link_color: $main_link_color !default;
+$nav_background_color: transparent !default;
+$nav_separator: 1px solid #333 !default;
+$nav_hover_color: $main_link_hover_color !default;
+$nav_hover_background_color: rgba(40, 14, 12, 0.5) !default;
+$nav_active_color: inherit !default;
+$nav_active_background_color: rgba(255, 255, 255, 0.1) !default;
+$nav_data_separator_color: #666 !default;
+
+$chatbox_border: $basic_border !default;
+$chatbox_item_border: $chatbox_border !default;
+$chatbox_item_background_color: transparent !default;
+
+$side_chat_background_color: #EEE !default;
+$side_chat_border: $basic_border !default;
+
+$finished_games_color: #999 !default;
+$playing_games_color: $highlight_color !default;
+$my_turn_games_color: $playing_games_color !default;
+$main_games_color: $text_color !default;
+
+$footer_color: $main_link_color !default;
+$footer_background_color: $main_back_color !default;
+$footer_shadow_color: $main_shadow_color !default;
+
+
+
+// now create the styles
+
+html, body {
+	background-color: $background_color;
+	color: $text_color;
+}
+
+
+a {
+	color: $link_color;
+
+	&.help {
+		border: $help_border;
+
+		&:hover {
+			border: $help_hover_border;
+		}
+	}
+}
+
+
+abbr,
+acronym {
+	border-bottom: $abbr_border;
+}
+
+
+hr {
+	&.fancy {
+		background-color: $hr_fancy_back;
+		border: $hr_fancy_border;
+	}
+}
+
+
+fieldset {
+	border: $fieldset_border;
+}
+
+
+.warning, .warning * {
+	color: $warning_color;
+}
+
+
+.notice, .notice * {
+	color: $notice_color;
+}
+
+
+.highlight, .highlight * {
+	color: $highlight_color;
+}
+
+
+.instruction, .instruction * {
+	color: $instruction_color;
+}
+
+
+header {
+	border-bottom: $header_border_bottom;
+
+	background-color: $header_background_color;
+	background: -o-radial-gradient(50% 100%, ellipse cover, $header_highlight_color 30%, $header_background_color 80%) $header_background_color;
+	background: -ms-radial-gradient(50% 100%, ellipse cover, $header_highlight_color 30%, $header_background_color 80%) $header_background_color;
+	background: -moz-radial-gradient(50% 100%, ellipse cover, $header_highlight_color 30%, $header_background_color 80%) $header_background_color;
+	background: -webkit-radial-gradient(50% 100%, ellipse cover, $header_highlight_color 30%, $header_background_color 80%) $header_background_color;
+	background: radial-gradient(50% 100%, ellipse cover, $header_highlight_color 30%, $header_background_color 80%) $header_background_color;
+}
+
+
+h1 {
+	height: $header_h1_height;
+
+	a {
+		background-image: $header_logo;
+	}
+}
+
+
+nav.site {
+	a {
+		color: $site_nav_link_color;
+
+		text-shadow: $site_nav_text_shadow;
+
+		&:hover {
+			color: $site_nav_link_hover_color;
+
+			background: -o-radial-gradient(50% 90%, ellipse closest-corner, $site_nav_hover_shadow_color 30%, $site_nav_hover_edge_shadow_color 70%) transparent;
+			background: -ms-radial-gradient(50% 90%, ellipse closest-corner, $site_nav_hover_shadow_color 30%, $site_nav_hover_edge_shadow_color 70%) transparent;
+			background: -moz-radial-gradient(50% 90%, ellipse closest-corner, $site_nav_hover_shadow_color 30%, $site_nav_hover_edge_shadow_color 70%) transparent;
+			background: -webkit-radial-gradient(50% 100%, 80% 20%, $site_nav_hover_shadow_color 30%, $site_nav_hover_edge_shadow_color 70%) transparent;
+			background: radial-gradient(50% 100%, 80% 20%, $site_nav_hover_shadow_color 30%, $site_nav_hover_edge_shadow_color 70%) transparent;
+		}
+	}
+}
+
+
+*.box {
+	background-color: $box_border_gradient_background_color;
+	background: -o-linear-gradient($box_border_gradient_highlight_color, $box_border_gradient_background_color) $box_border_gradient_background_color;
+	background: -ms-linear-gradient($box_border_gradient_highlight_color, $box_border_gradient_background_color) $box_border_gradient_background_color;
+	background: -moz-linear-gradient($box_border_gradient_highlight_color, $box_border_gradient_background_color) $box_border_gradient_background_color;
+	background: -webkit-linear-gradient($box_border_gradient_highlight_color, $box_border_gradient_background_color) $box_border_gradient_background_color;
+	background: linear-gradient($box_border_gradient_highlight_color, $box_border_gradient_background_color) $box_border_gradient_background_color;
+
+	& > * {
+		background-color: $box_gradient_background_color;
+		background: -o-linear-gradient($box_gradient_background_color, $box_gradient_highlight_color) $box_gradient_background_color;
+		background: -ms-linear-gradient($box_gradient_background_color, $box_gradient_highlight_color) $box_gradient_background_color;
+		background: -moz-linear-gradient($box_gradient_background_color, $box_gradient_highlight_color) $box_gradient_background_color;
+		background: -webkit-linear-gradient($box_gradient_background_color, $box_gradient_highlight_color) $box_gradient_background_color;
+		background: linear-gradient($box_gradient_background_color, $box_gradient_highlight_color) $box_gradient_background_color;
+
+		-o-box-shadow: 0px 1px 0px $box_highlight_top_color inset, 0px -2px 1px $box_highlight_bottom_color inset;
+		-ms-box-shadow: 0px 1px 0px $box_highlight_top_color inset, 0px -2px 1px $box_highlight_bottom_color inset;
+		-moz-box-shadow: 0px 1px 0px $box_highlight_top_color inset, 0px -2px 1px $box_highlight_bottom_color inset;
+		-webkit-box-shadow: 0px 1px 0px $box_highlight_top_color inset, 0px -2px 1px $box_highlight_bottom_color inset;
+		box-shadow: 0px 1px 0px $box_highlight_top_color inset, 0px -2px 1px $box_highlight_bottom_color inset;
+	}
+}
+
+
+nav#menu ,
+nav#mygames {
+	a {
+		color: $nav_link_color;
+		background-color: $nav_background_color;
+		border-bottom: $nav_separator;
+
+		&:hover {
+			color: $nav_hover_color;
+			background-color: $nav_hover_background_color;
+		}
+	}
+
+	li {
+		&.active {
+			a {
+				color: $nav_active_color;
+				background-color: $nav_active_background_color;
+			}
+		}
+
+		span.sep {
+			color: $nav_data_separator_color;
+		}
+	}
+}
+
+
+nav#mygames {
+	.finished a { color: $finished_games_color; }
+	.playing a { color: $playing_games_color; }
+	.my_turn a { color: $my_turn_games_color; }
+	.none a { color: $main_games_color; }
+}
+
+
+aside#info {
+	#chatbox {
+		background-color: $side_chat_background_color;
+		border: $side_chat_border;
+	}
+}
+
+
+h2 {
+	border-bottom: $h2_border;
+}
+
+
+#index_page {
+	#chatbox {
+		border: $chatbox_border;
+	}
+
+	#chats {
+		border-top: $chatbox_item_border;
+
+		dt {
+			border-bottom: $chatbox_item_border;
+			background: $chatbox_item_background_color;
+		}
+
+		dd {
+			border-bottom: $chatbox_item_border;
+		}
+	}
+}
+
+
+footer {
+	color: $footer_color;
+	background-color: $footer_background_color;
+
+	-o-box-shadow: 0px 3px 16px $footer_shadow_color inset;
+	-ms-box-shadow: 0px 3px 16px $footer_shadow_color inset;
+	-moz-box-shadow: 0px 3px 16px $footer_shadow_color inset;
+	-webkit-box-shadow: 0px 3px 16px $footer_shadow_color inset;
+	box-shadow: 0px 3px 16px $footer_shadow_color inset;
+}
+
+
+#buttons {
+	a {
+		border: $nav_separator;
+		border-width: 0 1px; /* because we override this with the above property */
+	}
+}
+
+
+@import "c_game_template"
+
+
