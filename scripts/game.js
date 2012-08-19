@@ -12,7 +12,7 @@ $(document).ready( function( ) {
 	// PANIC BUTTON
 	// hides the players board when it's clicked in
 	// case the opponent walked in the room
-	$('div.active div.first').live('click', function( ) {
+	$('div.active div.first').on('click', function( ) {
 		$this = $(this);
 		if (board_storage) {
 			$this.replaceWith(board_storage);
@@ -22,7 +22,7 @@ $(document).ready( function( ) {
 			board_storage = $this;
 			$this.replaceWith('<div class="noboard first panic">HIDDEN</div>');
 		}
-	});
+	}).attr('title', 'Click to hide board');
 
 	// set the previous shots
 	var id = 0;
