@@ -159,7 +159,6 @@ else { // do not edit the following
 	error_reporting(E_ALL & ~ E_NOTICE); // show errors, but not notices
 }
 
-
 // log the player in
 if (( ! defined('LOGIN') || LOGIN) && isset($Mysql)) {
 	$GLOBALS['Player'] = new GamePlayer( );
