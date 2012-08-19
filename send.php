@@ -58,8 +58,8 @@ if (isset($_GET['id'])) {
 $meta['title'] = 'Message Writer';
 $meta['show_menu'] = false;
 $meta['head_data'] = '
-	<style type="text/css">@import url(css/vader/jquery-ui-1.8.13.custom.css);</style>
-	<script type="text/javascript" src="scripts/jquery-ui-1.8.13.datepicker.min.js"></script>
+	<style type="text/css">@import url(css/vader/jquery-ui-1.8.23.custom.css);</style>
+	<script type="text/javascript" src="scripts/jquery-ui-1.8.23.datepicker.min.js"></script>
 	<script type="text/javascript" src="scripts/messages.js"></script>
 ';
 

@@ -150,7 +150,7 @@ function get_header($meta = null) {
 	</script>
 
 	<script type="text/javascript" src="scripts/json.js"></script>
-	<script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-1.8.0.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tablesorter.js"></script>
 
 	<!-- fancybox -->
