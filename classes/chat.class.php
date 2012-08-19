@@ -231,11 +231,11 @@ class Chat
 // ===================================
 
 --
--- Table structure for table `wr_chat`
+-- Table structure for table `chat`
 --
 
-DROP TABLE IF EXISTS `wr_chat`;
-CREATE TABLE IF NOT EXISTS `wr_chat` (
+DROP TABLE IF EXISTS `chat`;
+CREATE TABLE IF NOT EXISTS `chat` (
   `chat_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `message` text NOT NULL,
   `from_id` int(10) unsigned NOT NULL DEFAULT '0',

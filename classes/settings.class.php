@@ -431,11 +431,11 @@ class Settings
 // ===================================
 
 --
--- Table structure for table `bs_settings`
+-- Table structure for table `settings`
 --
 
-DROP TABLE IF EXISTS `bs_settings`;
-CREATE TABLE IF NOT EXISTS `bs_settings` (
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE IF NOT EXISTS `settings` (
   `setting` varchar(255) NOT NULL DEFAULT '',
   `value` text NOT NULL,
   `notes` text,
@@ -446,13 +446,13 @@ CREATE TABLE IF NOT EXISTS `bs_settings` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;
 
 --
--- Dumping data for table `bs_settings`
+-- Dumping data for table `settings`
 --
 
-INSERT INTO `bs_settings` (`setting`, `value`, `notes`, `sort`) VALUES
+INSERT INTO `settings` (`setting`, `value`, `notes`, `sort`) VALUES
   ('site_name', 'Your Site Name', 'The name of your site', 10),
-  ('default_color', 'c_green_white.css', 'The default theme color for the script pages', 20),
-  ('nav_links', '<!-- your nav links here -->', 'HTML code for your site''s navigation links to display on the script pages', 30),
+  ('default_color', 'c_blue_black.css', 'The default theme color for the script pages', 20),
+  ('nav_links', '<a href="/">Home</a>', 'HTML code for your site''s navigation links to display on the script pages', 30),
   ('from_email', 'your.mail@yoursite.com', 'The email address used to send game emails', 40),
   ('to_email', 'you@yoursite.com', 'The email address to send admin notices to (comma separated)', 50),
   ('new_users', '1', '(1/0) Allow new users to register (0 = off)', 60),

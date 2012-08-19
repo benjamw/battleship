@@ -868,11 +868,11 @@ class Message
 // ===================================
 
 --
--- Table structure for table `wr_message`
+-- Table structure for table `message`
 --
 
-DROP TABLE IF EXISTS `wr_message`;
-CREATE TABLE IF NOT EXISTS `wr_message` (
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE IF NOT EXISTS `message` (
   `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) NOT NULL DEFAULT '',
   `message` text NOT NULL,
@@ -884,11 +884,11 @@ CREATE TABLE IF NOT EXISTS `wr_message` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wr_message_glue`
+-- Table structure for table `message_glue`
 --
 
-DROP TABLE IF EXISTS `wr_message_glue`;
-CREATE TABLE IF NOT EXISTS `wr_message_glue` (
+DROP TABLE IF EXISTS `message_glue`;
+CREATE TABLE IF NOT EXISTS `message_glue` (
   `message_glue_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `message_id` int(10) unsigned NOT NULL DEFAULT '0',
   `from_id` int(10) unsigned NOT NULL DEFAULT '0',
