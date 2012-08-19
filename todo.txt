@@ -9,8 +9,6 @@ TODO
 
 - admin player delete is failing, fix it
 
-- sync fixes from pharaoh, as well as new layout
-
 - don't send out "your turn" email after opponent resignation
 
 - port ajax_helper to ajax functions and only have logic switches
