@@ -138,7 +138,7 @@ $opponent_boats = 5 - count($Game->get_missing_boats($mine = false));
 $meta['title'] = $turn.' - '.$Game->name.' (#'.$_SESSION['game_id'].')';
 $meta['show_menu'] = false;
 $meta['head_data'] = '
-	<link rel="stylesheet" type="text/css" media="screen" href="css/board.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/game.css" />
 
 	<script type="text/javascript">//<![CDATA[
 		var state = "'.(( ! $Game->paused) ? strtolower($Game->state) : 'paused').'";
