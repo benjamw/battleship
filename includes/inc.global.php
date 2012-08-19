@@ -147,7 +147,7 @@ if (Mysql::test( )) {
 	}
 }
 
-if (defined('DEBUG') && DEBUG || true) {
+if (defined('DEBUG') && DEBUG) {
 	ini_set('display_errors','On');
 	error_reporting(E_ALL | E_STRICT); // all errors, notices, and strict warnings
 	if (isset($Mysql)) {
@@ -157,9 +157,6 @@ if (defined('DEBUG') && DEBUG || true) {
 else { // do not edit the following
 	ini_set('display_errors','Off');
 	error_reporting(E_ALL & ~ E_NOTICE); // show errors, but not notices
-}
-if (isset($Mysql)) {
-	$Mysql->set_error(1);
 }
 
 
