@@ -116,6 +116,7 @@ class Settings
 	 * @action destroys object
 	 * @return void
 	 */
+/*
 	public function __destruct( )
 	{
 		// save anything changed to the database
@@ -124,13 +125,14 @@ class Settings
 
 		if (0 == ((E_ERROR | E_WARNING | E_PARSE) & $error['type'])) {
 			try {
-				$this->_save( );
+				$this->save( );
 			}
 			catch (MyException $e) {
 				// do nothing, it will be logged
 			}
 		}
 	}
+*/
 
 
 	/** public function __get
@@ -213,7 +215,7 @@ class Settings
 	}
 
 
-	/** protected function _save
+	/** public function save
 	 *		Saves all settings data to the database
 	 *		if the settings are different
 	 *
@@ -221,7 +223,7 @@ class Settings
 	 * @action saves the settings data
 	 * @return void
 	 */
-	protected function _save( )
+	public function save( )
 	{
 		call(__METHOD__);
 
@@ -354,6 +356,7 @@ class Settings
 	{
 		if (self::get_instance( )) {
 			self::get_instance( )->$property = $value;
+			self::get_instance( )->save( );
 		}
 	}
 
@@ -368,7 +371,9 @@ class Settings
 	static public function write_all($settings)
 	{
 		if (self::get_instance( )) {
-			return self::get_instance( )->put_settings($settings);
+			self::get_instance( )->put_settings($settings);
+			self::get_instance( )->save( );
+			return self::get_instance( )->get_settings( );
 		}
 		else {
 			return false;

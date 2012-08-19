@@ -154,32 +154,35 @@ if (isset($_POST['method'])) {
 	try {
 		if (isset($_POST['done'])) {
 			$Game->setup_done( );
+			$return['redirect'] = (($Game->test_ready( )) ? 'game.php?id='.$Game->id : 'index.php');
 		}
+		else {
+			switch ($_POST['method']) {
+				case 'clear' :
+					$Game->setup_action('clear_board');
+					break;
 
-		switch ($_POST['method']) {
-			case 'clear' :
-				$return['board'] = $Game->setup_clear_board( );
-				break;
+				case 'random' :
+					$Game->setup_action('random_board');
+					break;
 
-			case 'random' :
-				$return['board'] = $Game->setup_random_board( );
-				break;
+				case 'between' :
+					list($value1, $value2) = explode(':', $_POST['value']);
+					$Game->setup_action('boat_between', $value1, $value2);
+					break;
 
-			case 'between' :
-				list($value1, $value2) = explode(':', $_POST['value']);
-				$return['board'] = $Game->setup_place_boat_between($value1, $value2);
-				break;
+				case 'random_boat' :
+					$Game->setup_action('random_boat', $_POST['value']);
+					break;
 
-			case 'random_boat' :
-				$return['board'] = $Game->setup_random_boat($_POST['value']);
-				break;
+				case 'remove' :
+					$Game->setup_action('remove_boat', $_POST['value']);
+					break;
+			} // end method switch
 
-			case 'remove' :
-				$return['board'] = $Game->setup_remove_boat($_POST['value']);
-				break;
-		} // end method switch
-
-		$return['boats'] = $Game->get_boats_html( );
+			$return['board'] = $Game->get_board_html('first', true);
+			$return['boats'] = $Game->get_boats_html( );
+		}
 	}
 	catch (MyException $e) {
 		$return['error'] = 'ERROR: '.$e->outputMessage( );

@@ -38,7 +38,7 @@ try {
 		exit;
 	}
 	elseif (isset($_GET['accept'])) {
-		$Game->state = 'Placing';
+		$Game->set_state('Placing');
 	}
 }
 catch (MyException $e) {

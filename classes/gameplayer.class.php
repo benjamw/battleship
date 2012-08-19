@@ -142,6 +142,7 @@ class GamePlayer
 	 * @action destroys object
 	 * @return void
 	 */
+/*
 	public function __destruct( )
 	{
 		return; // until i can figure out WTF?
@@ -152,13 +153,14 @@ class GamePlayer
 
 		if (0 == ((E_ERROR | E_WARNING | E_PARSE) & $error['type'])) {
 			try {
-				$this->_save( );
+				$this->save( );
 			}
 			catch (MyException $e) {
 				// do nothing, it will be logged
 			}
 		}
 	}
+*/
 
 
 	/** public function log_in

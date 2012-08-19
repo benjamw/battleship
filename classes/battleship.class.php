@@ -236,14 +236,14 @@ class Battleship
 	}
 
 
-	/** public function generate_random_board
+	/** public function random_board
 	 *		Places all 5 boats on the board randomly
 	 *
 	 * @param void
 	 * @action randomly fills the board
 	 * @return void
 	 */
-	public function generate_random_board( )
+	public function random_board( )
 	{
 		call(__METHOD__);
 
@@ -254,7 +254,7 @@ class Battleship
 		$sizes  = array(5, 4, 3, 3, 2);
 		foreach ($sizes as $key => $size) {
 			try {
-				$this->place_random_boat($size);
+				$this->random_boat($size);
 			}
 			catch (MyException $e) {
 				$code = $e->getCode( );
@@ -340,7 +340,7 @@ class Battleship
 	}
 
 
-	/** public function place_boat_between
+	/** public function boat_between
 	 *		Places a boat between the given squares
 	 *
 	 * @param int computer string index
@@ -348,7 +348,7 @@ class Battleship
 	 * @action places the boat
 	 * @return bool success
 	 */
-	public function place_boat_between($value1, $value2)
+	public function boat_between($value1, $value2)
 	{
 		call(__METHOD__);
 
@@ -404,14 +404,14 @@ class Battleship
 	}
 
 
-	/** public function place_random_boat
+	/** public function random_boat
 	 *		Places the given boat on the board randomly
 	 *
 	 * @param int boat size (5,4,3,2)
 	 * @action randomly fills the board
 	 * @return void
 	 */
-	public function place_random_boat($size)
+	public function random_boat($size)
 	{
 		call(__METHOD__);
 		call($size);

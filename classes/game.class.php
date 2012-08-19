@@ -213,7 +213,7 @@ class Game
 
 		if ($this->id && (0 == ((E_ERROR | E_WARNING | E_PARSE) & $error['type']))) {
 			try {
-				$this->_save( );
+				$this->save( );
 			}
 			catch (MyException $e) {
 				// do nothing, it will be logged
@@ -301,6 +301,20 @@ class Game
 	}
 
 
+	/** public function set_state
+	 *		Sets the game into the given state
+	 *
+	 * @param string state name
+	 * @action saves the new state
+	 * @return void
+	 */
+	public function set_state($state)
+	{
+		$this->state = $state;
+		$this->save( );
+	}
+
+
 	/** public function invite
 	 *		Creates the game from _POST data
 	 *
@@ -341,7 +355,7 @@ class Game
 		$_DATA['create_date '] = 'NOW( )'; // note the trailing space in the field name, this is not a typo
 
 
-		// THIS IS THE ONLY PLACE IN THE CLASS WHERE IT BREAKS THE _pull / _save MENTALITY
+		// THIS IS THE ONLY PLACE IN THE CLASS WHERE IT BREAKS THE _pull / save MENTALITY
 		// BECAUSE I NEED THE INSERT ID FOR THE REST OF THE GAME FUNCTIONALITY
 
 		$insert_id = $this->_mysql->insert(self::GAME_TABLE, $_DATA);
@@ -400,6 +414,7 @@ class Game
 		$this->_players['opponent']['object']->add_win( );
 		$this->_players['player']['object']->add_loss( );
 		$this->state = 'Finished';
+		$this->save( );
 		Email::send('resigned', $this->_players['opponent']['object']->id, array('name' => $this->_players['player']['object']->username));
 	}
 
@@ -533,6 +548,7 @@ class Game
 
 			if ($ready && ! count($first) && ! count($second)) {
 				$this->state = 'Playing';
+				$this->save( );
 
 				$player_ids = array( );
 				$player_ids[] = $this->_players['white']['player_id'];
@@ -998,111 +1014,23 @@ class Game
 	}
 
 
-	/** public function setup_clear_board
-	 *		Clears the board
+	/** public function setup_action
+	 *		Performs the given action on the setup board
 	 *
-	 * @param void
-	 * @action clears the board
-	 * @return string html game board
+	 * @param string action name
+	 * @action performs the specified action
+	 * @return void
 	 */
-	public function setup_clear_board( )
+	public function setup_action($action = 'clear_board')
 	{
 		call(__METHOD__);
 
 		try {
-			$this->test_setup( );
-			$this->_boards['player']->clear_board( );
-			return $this->get_board_html('first', true);
-		}
-		catch (MyException $e) {
-			throw $e;
-		}
-	}
+			call_user_func_array(array($this->_boards['player'], $action), array_slice(func_get_args( ), 1));
 
-
-	/** public function setup_remove_boat
-	 *		Removes the boat on the given square
-	 *
-	 * @param string board square
-	 * @action removes the given boat
-	 * @return string html game board
-	 */
-	public function setup_remove_boat($index)
-	{
-		call(__METHOD__);
-
-		try {
-			$this->test_setup( );
-			$this->_boards['player']->remove_boat($index);
-			return $this->get_board_html('first', true);
-		}
-		catch (MyException $e) {
-			throw $e;
-		}
-	}
-
-
-	/** public function setup_random_boat
-	 *		Places the given boat randomly
-	 *
-	 * @param int size of boat
-	 * @action randomly places given boat
-	 * @return string html game board
-	 */
-	public function setup_random_boat($size)
-	{
-		call(__METHOD__);
-
-		try {
-			$this->test_setup( );
-			$this->_boards['player']->place_random_boat($size);
-			return $this->get_board_html('first', true);
-		}
-		catch (MyException $e) {
-			throw $e;
-		}
-	}
-
-
-	/** public function setup_random_board
-	 *		Clears the board and sets up a
-	 *		completely random board
-	 *
-	 * @param void
-	 * @action sets up random board
-	 * @return string html game board
-	 */
-	public function setup_random_board( )
-	{
-		call(__METHOD__);
-
-		try {
-			$this->test_setup( );
-			$this->_boards['player']->generate_random_board( );
-			return $this->get_board_html('first', true);
-		}
-		catch (MyException $e) {
-			throw $e;
-		}
-	}
-
-
-	/** public function setup_place_boat_between
-	 *		Places a boat between the two given squares
-	 *
-	 * @param string board square
-	 * @param string board square
-	 * @action places boat
-	 * @return string html game board
-	 */
-	public function setup_place_boat_between($index1, $index2)
-	{
-		call(__METHOD__);
-
-		try {
-			$this->test_setup( );
-			$this->_boards['player']->place_boat_between($index1, $index2);
-			return $this->get_board_html('first', true);
+			// if they changed anything, set them as not ready
+			$this->_players['player']['ready'] = false;
+			$this->save( );
 		}
 		catch (MyException $e) {
 			throw $e;
@@ -1121,18 +1049,16 @@ class Game
 	{
 		call(__METHOD__);
 
-		if ($this->test_setup( )) {
-			// make sure the player has placed all the boats
-			if (count($this->get_missing_boats( ))) {
-				throw new MyException(__METHOD__.': All boats must be placed before finalizing setup');
-			}
-
-			$this->_players['player']['ready'] = true;
-
-			return true;
+		// make sure the player has placed all the boats
+		if (count($this->get_missing_boats( ))) {
+			throw new MyException(__METHOD__.': All boats must be placed before finalizing setup');
 		}
 
-		return false;
+		$this->_players['player']['ready'] = true;
+
+		// check for readiness
+		// this will also save if it needs to
+		$this->test_ready( );
 	}
 
 
@@ -1306,14 +1232,14 @@ class Game
 	}
 
 
-	/** protected function _save
+	/** protected function save
 	 *		Saves all changed data to the database
 	 *
 	 * @param void
 	 * @action saves the game data
 	 * @return void
 	 */
-	protected function _save( )
+	protected function save( )
 	{
 		call(__METHOD__);
 
@@ -1470,6 +1396,7 @@ class Game
 	 *
 	 * @param void
 	 * @action takes appropriate action if a winner is found
+	 * @action saves the game
 	 * @return void
 	 */
 	protected function _test_winner( )
@@ -1491,6 +1418,8 @@ class Game
 		else {
 			Email::send('turn', $this->_players['opponent']['object']->id, array('name' => $this->_players['player']['object']->username));
 		}
+
+		$this->save( );
 	}
 
 
