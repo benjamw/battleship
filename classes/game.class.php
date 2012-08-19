@@ -515,22 +515,6 @@ class Game
 	}
 
 
-	/** public function test_setup
-	 *		Tests the game to see if this player
-	 *		can still setup the board
-	 *
-	 * @param void
-	 * @action tests player setup ability
-	 * @return bool player can setup
-	 */
-	public function test_setup( )
-	{
-		call(__METHOD__);
-
-		return ! $this->_players['player']['ready'];
-	}
-
-
 	/** public function test_ready
 	 *		Tests the game to see if the boards are
 	 *		set up and ready to go

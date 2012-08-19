@@ -25,17 +25,12 @@ try {
 	$Game = new Game((int) $_SESSION['game_id']);
 
 	if ( ! $Game->test_ready( )) {
-		if ( ! $Game->test_setup( )) {
-			Flash::store("Waiting for opponent to setup board.\n\nPlease try again later.");
+		if ( ! defined('DEBUG') || ! DEBUG) {
+			session_write_close( );
+			header('Location: setup.php?id='.$_SESSION['game_id'].$GLOBALS['_&_DEBUG_QUERY']);
 		}
 		else {
-			if ( ! defined('DEBUG') || ! DEBUG) {
-				session_write_close( );
-				header('Location: setup.php?id='.$_SESSION['game_id'].$GLOBALS['_&_DEBUG_QUERY']);
-			}
-			else {
-				call('GAME IS INCOMPLETE, REDIRECTED TO setup.php?id='.$_SESSION['game_id'].$GLOBALS['_&_DEBUG_QUERY'].' AND QUIT');
-			}
+			call('GAME IS INCOMPLETE, REDIRECTED TO setup.php?id='.$_SESSION['game_id'].$GLOBALS['_&_DEBUG_QUERY'].' AND QUIT');
 		}
 
 		exit;

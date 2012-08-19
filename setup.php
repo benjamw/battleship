@@ -26,7 +26,7 @@ else {
 try {
 	$Game = new Game($_SESSION['game_id']);
 
-	if ( ! $Game->test_setup( )) {
+	if ($Game->test_ready( )) {
 		if ( ! defined('DEBUG') || ! DEBUG) {
 			session_write_close( );
 			header('Location: game.php?id='.$_SESSION['game_id'].$GLOBALS['_&_DEBUG_QUERY']);
@@ -70,6 +70,7 @@ $hints = array(
 	'Click any unplaced boat to randomly place that boat.' ,
 	'Click any placed boat to remove that boat.' ,
 	'"Random Board" will randomly place ALL the boats, not just the unplaced ones.' ,
+	'<span class="warning">NOTE</span>: When you are satisfied with your setup, you must click "Done" to finalize it.' ,
 );
 
 $contents = '';
