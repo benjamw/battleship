@@ -87,6 +87,10 @@ $(document).ready( function( ) {
 						alert(reply.error);
 					}
 
+					if (reply.redirect) {
+						window.location = ((-1 !== reply.redirect.indexOf('?')) ? reply.redirect+debug_query : reply.redirect+debug_query_);
+					}
+
 					if (reload) { window.location.reload( ); }
 					return;
 				}

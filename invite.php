@@ -63,7 +63,7 @@ foreach ($methods as $method) {
 
 
 $meta['title'] = 'Send Game Invitation';
-$meta['head_data'] = '
+$meta['foot_data'] = '
 	<script type="text/javascript" src="scripts/invite.js"></script>
 ';
 
@@ -144,7 +144,7 @@ $table_format = array(
 	array('Player #2', 'black') ,
 	array('Method', 'method') ,
 	array('Date Sent', '###date(Settings::read(\'long_date\'), strtotime(\'[[[create_date]]]\'))', null, ' class="date"') ,
-	array('Action', '###\'<input type="button" id="withdraw-[[[game_id]]]" value="Withdraw" />\'.((strtotime(\'[[[create_date]]]\') >= strtotime(\'[[[resend_limit]]]\')) ? \'\' : \'<input type="button" id="resend-[[[game_id]]]" value="Resend" />\')', false) ,
+	array('Action', '###\'<input type="button" id="setup-[[[game_id]]]" value="Edit Setup" /><input type="button" id="withdraw-[[[game_id]]]" value="Withdraw" />\'.((strtotime(\'[[[create_date]]]\') >= strtotime(\'[[[resend_limit]]]\')) ? \'\' : \'<input type="button" id="resend-[[[game_id]]]" value="Resend" />\')', false) ,
 );
 $contents .= get_table($table_format, $out_vites, $table_meta);
 
@@ -155,5 +155,5 @@ EOT;
 echo get_header($meta);
 echo get_item($contents, $hints, $meta['title']);
 call($GLOBALS);
-echo get_footer( );
+echo get_footer($meta);
 

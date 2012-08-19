@@ -253,7 +253,7 @@ EOF;
  * @return string HTML footer for page
  */
 function get_footer($meta = array( )) {
-	$foot_data = (isset($meta['foot_data'])) ? $meta['foot_data'] : '';
+	$foot_data = isset($meta['foot_data']) ? $meta['foot_data'] : '';
 
 	$players = GamePlayer::get_count( );
 	list($cur_games, $total_games) = Game::get_count( );
