@@ -1008,7 +1008,8 @@ class Game
 		call(__METHOD__);
 
 		try {
-			call_user_func_array(array($this->_boards['player'], $action), array_slice(func_get_args( ), 1));
+			$args = func_get_args( );
+			call_user_func_array(array($this->_boards['player'], $action), array_slice($args, 1));
 
 			// if they changed anything, set them as not ready
 			$this->_players['player']['ready'] = false;
