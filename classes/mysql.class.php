@@ -120,6 +120,7 @@ class Mysql
 	 * @action close the mysql connection
 	 * @return void
 	 */
+/*
 	public function __destruct( )
 	{
 		$this->_log(__METHOD__.': '.$this->link_id);
@@ -131,6 +132,7 @@ class Mysql
 		$this->link_id = null;
 		self::$_instance = null;
 	}
+*/
 
 
 	/** public function __get

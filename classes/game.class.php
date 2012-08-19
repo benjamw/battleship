@@ -205,6 +205,7 @@ class Game
 	 * @action destroys object
 	 * @return void
 	 */
+/*
 	public function __destruct( )
 	{
 		// save anything changed to the database
@@ -220,6 +221,7 @@ class Game
 			}
 		}
 	}
+*/
 
 
 	/** public function __get
