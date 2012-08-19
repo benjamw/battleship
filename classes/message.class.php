@@ -496,7 +496,7 @@ class Message
 
 		try {
 			$message = $this->_get_message_data($message_id, true);
-			$data['subject'] = (0 === strpos($message['subject'], 'RE')) ? $message['subject'] : 'RE: '.$message['subject'];
+			$message['subject'] = (0 === strpos($message['subject'], 'RE')) ? $message['subject'] : 'RE: '.$message['subject'];
 		}
 		catch (MyExeption $e) {
 			throw $e;
@@ -522,7 +522,7 @@ class Message
 
 		try {
 			$message = $this->_get_message_data($message_id, false);
-			$data['subject'] = (0 === strpos($message['subject'], 'FW')) ? $message['subject'] : 'FW: '.$message['subject'];
+			$message['subject'] = (0 === strpos($message['subject'], 'FW')) ? $message['subject'] : 'FW: '.$message['subject'];
 		}
 		catch (MyExeption $e) {
 			throw $e;
