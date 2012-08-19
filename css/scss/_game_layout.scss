@@ -1,9 +1,9 @@
 
 
-/* Pharaoh specific */
+/* Battleship specific */
 
 /*
-	this file holds the styles that are specific to pharaoh
+	this file holds the styles that are specific to Battleship
 */
 
 
@@ -14,52 +14,6 @@ h2 span {
 		margin-left: 0;
 	}
 }
-
-
-#pieces_display {
-	height: 200px;
-	width: 700px;
-	float: left;
-	clear: left;
-	margin-top: 20px;
-
-	#cancel_delete {
-		float: left;
-		height: 200px;
-		width: 50px;
-	}
-
-	#silver_pieces,
-	#red_pieces {
-		float: left;
-		height: 100px;
-		width: 530px;
-	}
-
-	#red_pieces {
-		margin-top: 5px;
-	}
-
-	img {
-		border: 2px solid transparent;
-
-		&.selected {
-			border-color: #FFF;
-		}
-	}
-}
-
-#setup_display {
-	float: left;
-	clear: left;
-	margin: 20px 10px;
-	width: auto;
-}
-
-
-.sil { background-color: #AAA !important; color: #000 !important; }
-.red { background-color: #B00 !important; color: #FFF !important; }
-.blu { background-color: #36F !important; color: #FFF !important; }
 
 
 #fancybox-content {

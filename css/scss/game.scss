@@ -11,7 +11,7 @@
 }
 
 #chatbox {
-	margin-left: 732px;
+	margin-left: 755px;
 }
 
 #chats {
@@ -22,6 +22,10 @@
 	#chatbox {
 		input[type=text] {
 			width: 80%;
+		}
+
+		dd {
+			padding-left: 1em;
 		}
 	}
 }
