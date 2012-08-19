@@ -42,7 +42,7 @@ Log in and take your turn... Quit dawdling!  DO IT!'),
 		'message' => '
 You have been pwninated by [[[opponent]]] in the [[[GAME_NAME]]] game you are playing at [[[site_name]]].
 
-Better luck next time, log on and invite someone to a new game if you still wish to play.'),
+Better luck next time! Now go log on and invite someone to a new game.'),
 
 
 

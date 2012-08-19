@@ -369,7 +369,7 @@ class Game
 		$this->id = $insert_id;
 
 		$this->_create_blank_boards( );
-		Email::send('invite', $_P['black_id'], array('name' => $GLOBALS['_PLAYERS'][$_P['white_id']]));
+		Email::send('invite', $_P['black_id'], array('opponent' => $GLOBALS['_PLAYERS'][$_P['white_id']]));
 
 		// set the modified date
 		$this->_mysql->insert(self::GAME_TABLE, array('modify_date' => NULL), " WHERE game_id = '{$this->id}' ");
@@ -415,9 +415,11 @@ class Game
 
 		$this->_players['opponent']['object']->add_win( );
 		$this->_players['player']['object']->add_loss( );
+
 		$this->state = 'Finished';
 		$this->save( );
-		Email::send('resigned', $this->_players['opponent']['object']->id, array('name' => $this->_players['player']['object']->username));
+
+		Email::send('resigned', $this->_players['opponent']['player_id'], array('opponent' => $this->_players['player']['object']->username, 'game_id' => $this->id));
 	}
 
 
@@ -536,11 +538,7 @@ class Game
 				$this->state = 'Playing';
 				$this->save( );
 
-				$player_ids = array( );
-				$player_ids[] = $this->_players['white']['player_id'];
-				$player_ids[] = $this->_players['black']['player_id'];
-
-				Email::send('start', $player_ids, array('name' => $this->name));
+				Email::send('start', $this->_players['opponent']['player_id'], array('opponent' => $this->_players['player']['object']->username, 'game_id' => $this->id));
 
 				return true;
 			}
@@ -566,10 +564,8 @@ class Game
 			throw new MyException(__METHOD__.': Trying to perform an action on a paused game');
 		}
 
-		$nudger = $this->_players['player']['object']->username;
-
 		if ($this->test_nudge( )) {
-			Email::send('nudge', $this->_players['opponent']['player_id'], array('id' => $this->id, 'name' => $this->name, 'player' => $nudger));
+			Email::send('nudge', $this->_players['opponent']['player_id'], array('opponent' => $this->_players['player']['object']->username, 'game_id' => $this->id));
 			$this->_mysql->delete(self::GAME_NUDGE_TABLE, " WHERE game_id = '{$this->id}' ");
 			$this->_mysql->insert(self::GAME_NUDGE_TABLE, array('game_id' => $this->id, 'player_id' => $this->_players['opponent']['player_id']));
 			return true;
@@ -1398,11 +1394,13 @@ class Game
 		if ( ! $match) {
 			$this->_players['player']['object']->add_win( );
 			$this->_players['opponent']['object']->add_loss( );
+
 			$this->state = 'Finished';
-			Email::send('defeated', $this->_players['opponent']['object']->id, array('name' => $this->_players['player']['object']->username));
+
+			Email::send('defeated', $this->_players['opponent']['player_id'], array('opponent' => $this->_players['player']['object']->username, 'game_id' => $this->id));
 		}
 		else {
-			Email::send('turn', $this->_players['opponent']['object']->id, array('name' => $this->_players['player']['object']->username));
+			Email::send('turn', $this->_players['opponent']['object']->id, array('opponent' => $this->_players['player']['object']->username, 'game_id' => $this->id));
 		}
 
 		$this->save( );
