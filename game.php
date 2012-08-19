@@ -161,7 +161,7 @@ echo get_header($meta);
 				<li><a href="index.php<?php echo $GLOBALS['_?_DEBUG_QUERY']; ?>">Main Page</a></li>
 				<li><a href="game.php<?php echo $GLOBALS['_?_DEBUG_QUERY']; ?>">Reload Game Board</a></li>
 			</ul>
-			<h2>Game #<?php echo $_SESSION['game_id'].': '.htmlentities($Game->name, ENT_QUOTES, 'ISO-8859-1', false); ?> <?php echo $info_bar; ?></h2>
+			<h2>Game #<?php echo $_SESSION['game_id'].' vs '.htmlentities($Game->name, ENT_QUOTES, 'ISO-8859-1', false); ?> <?php echo $info_bar; ?></h2>
 
 			<?php if ('' != $sunk_text) { ?>
 			<div class="msg sunk"><?php echo $sunk_text; ?></div>

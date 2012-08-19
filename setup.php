@@ -53,8 +53,7 @@ catch (MyException $e) {
 }
 
 
-$meta['title'] = GAME_NAME.' Game #'.$_SESSION['game_id'].':'.$Game->name.' Setup';
-$meta['show_menu'] = false;
+$meta['title'] = GAME_NAME.' Game #'.$_SESSION['game_id'].' vs '.$Game->name.' Setup';
 $meta['head_data'] = '
 	<link rel="stylesheet" type="text/css" media="screen" href="css/board.css" />
 	<script type="text/javascript">//<![CDATA[
