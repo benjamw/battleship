@@ -5,13 +5,13 @@ var id1 = -1;
 $(document).ready( function( ) {
 
 	// make the board clickable
-	$('div.board div.row:not(div.top, div.bottom) div:not(div.side)').live('click', function(evnt) {
+	$('#board_wrapper').on('click', 'div.board div.row:not(div.top, div.bottom) div:not(div.side)', function(evnt) {
 		var $this = $(this);
 		var id = $this.attr('id').slice(4);
 		var _class = $this.attr('class');
 
 		// run the placed boat clicks
-		if ((-1 != _class.indexOf('v-')) || (-1 != _class.indexOf('h-'))) {
+		if (_class && ((-1 != _class.indexOf('v-')) || (-1 != _class.indexOf('h-')))) {
 			$('#method').val('remove');
 			$('#value').val(id);
 
@@ -25,6 +25,8 @@ $(document).ready( function( ) {
 			id1 = -1;
 		}
 		else { // adding square
+			$this.toggleClass('curshot');
+
 			if (-1 == id1) {
 				id1 = id;
 			}
@@ -45,23 +47,23 @@ $(document).ready( function( ) {
 			}
 		}
 
-		$this.toggleClass('curshot');
-	}).css('cursor', 'pointer');
+	}).find('div.board div.row:not(div.top, div.bottom) div:not(div.side)').css('cursor', 'pointer')
+		.filter('[class*="-"]').attr('title', 'Remove this boat');
 
 
 	// run the unplaced boat clicks
-	$('div.boat').live('click', function( ) {
+	$('#boat_wrapper').on('click', 'div.boat', function( ) {
 		$('#method').val('random_boat');
 		$('#value').val($('div', this).length);
 
 		run_ajax( );
 
 		return false;
-	});
+	}).find('div.boat').css('cursor', 'pointer').attr('title', 'Randomly place this boat');
 
 
 	// run the buttons and form
-	$('input.button').click( function( ) {
+	$('input.button').on('click', function( ) {
 		var id = $(this).attr('id');
 
 		if ('done' == id) {
@@ -163,8 +165,11 @@ function run_ajax( ) {
 			}
 
 			// refresh the board and boats
-			$('#boat_wrapper').empty( ).append(reply.boats);
-			$('#board_wrapper').empty( ).append(reply.board);
+			$('#boat_wrapper').empty( ).append(reply.boats)
+				.find('div.boat').css('cursor', 'pointer').attr('title', 'Randomly place this boat');
+			$('#board_wrapper').empty( ).append(reply.board)
+				.find('div.board div.row:not(div.top, div.bottom) div:not(div.side)').css('cursor', 'pointer')
+					.filter('[class*="-"]').attr('title', 'Remove this boat');
 			clear_form( );
 		}
 	});
