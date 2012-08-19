@@ -15,7 +15,7 @@ require_once 'includes/inc.global.php';
 
 // if we are debugging, change some things for us
 // (although REQUEST_METHOD may not always be valid)
-if (('GET' == $_SERVER['REQUEST_METHOD']) && test_debug( )) {
+if (('GET' == $_SERVER['REQUEST_METHOD']) && defined('DEBUG') && DEBUG) {
 	$GLOBALS['NODEBUG'] = false;
 	$GLOBALS['AJAX'] = false;
 	$_GET['token'] = $_SESSION['token'];

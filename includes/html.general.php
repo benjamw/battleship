@@ -26,8 +26,8 @@ function get_header($meta = null) {
 	$file_name = substr($file_name, 0, strrpos($file_name, '.'));
 
 	// make sure we have these
-	$GLOBALS['_&_DEBUG_QUERY'] = (isset($GLOBALS['_&_DEBUG_QUERY'])) ? $GLOBALS['_&_DEBUG_QUERY'] : '';
-	$GLOBALS['_?_DEBUG_QUERY'] = (isset($GLOBALS['_?_DEBUG_QUERY'])) ? $GLOBALS['_?_DEBUG_QUERY'] : '';
+	$GLOBALS['_&_DEBUG_QUERY'] = ( ! empty($GLOBALS['_&_DEBUG_QUERY'])) ? $GLOBALS['_&_DEBUG_QUERY'] : '';
+	$GLOBALS['_?_DEBUG_QUERY'] = ( ! empty($GLOBALS['_?_DEBUG_QUERY'])) ? $GLOBALS['_?_DEBUG_QUERY'] : ((defined('DEBUG') && DEBUG) ? '?' : '');
 
 	$flash = '';
 	if (class_exists('Flash')) {

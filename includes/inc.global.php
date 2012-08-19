@@ -64,9 +64,6 @@ date_default_timezone_set($GLOBALS['_DEFAULT_TIMEZONE']);
  *		GLOBAL DATA
  * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-$GLOBALS['_&_DEBUG_QUERY'] = '';
-$GLOBALS['_?_DEBUG_QUERY'] = '';
-
 // make a list of all the color files available to use
 $GLOBALS['_COLORS'] = array( );
 
@@ -117,6 +114,10 @@ $_SESSION['PWD'] = __FILE__;
 if ( ! isset($_SESSION['token'])) {
 	$_SESSION['token'] = md5(uniqid(rand( ), true));
 }
+
+// set our DEBUG constant
+$GLOBALS['_&_DEBUG_QUERY'] = '';
+$GLOBALS['_?_DEBUG_QUERY'] = '';
 
 if ( ! defined('DEBUG')) {
 	if (test_debug( )) {
