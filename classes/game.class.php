@@ -717,7 +717,7 @@ class Game
 			$j = str_pad($i, 2, '0', STR_PAD_LEFT);
 			$tgt_id = ('first' == $type) ? " id=\"dfd-{$j}\"" : " id=\"tgt-{$j}\"";
 
-			$side = '<div class="side">'.$letters[floor($i / 10)].'</div>';
+			$side = '<div class="side">'.$letters[(int) floor($i / 10)].'</div>';
 
 			// add the border
 			if (0 == ($i % 10)) {
