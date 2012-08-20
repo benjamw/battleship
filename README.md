@@ -1,4 +1,4 @@
-Battleship v1.0
+Battleship v2.0
 
 2012-08-07
 
