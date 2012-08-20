@@ -299,6 +299,17 @@ class Game
 			throw new MyException(__METHOD__.': Trying to access _private property ('.$property.')', 3);
 		}
 
+		switch ($property) {
+			case 'state' :
+				$this->set_state($value);
+				return;
+				break;
+
+			default :
+				// do nothing
+				break;
+		}
+
 		$this->$property = $value;
 	}
 
