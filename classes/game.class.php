@@ -536,7 +536,7 @@ class Game
 
 			if ($ready && ! count($first) && ! count($second)) {
 				$this->state = 'Playing';
-				$this->save( );
+				// this gets saved in the calling method
 
 				Email::send('start', $this->_players['opponent']['player_id'], array('opponent' => $this->_players['player']['object']->username, 'game_id' => $this->id));
 
@@ -1040,8 +1040,9 @@ class Game
 		$this->_players['player']['ready'] = true;
 
 		// check for readiness
-		// this will also save if it needs to
 		$this->test_ready( );
+
+		$this->save( );
 	}
 
 
