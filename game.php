@@ -140,7 +140,7 @@ $meta['show_menu'] = false;
 $meta['head_data'] = '
 	<link rel="stylesheet" type="text/css" media="screen" href="css/game.css" />
 
-	<script type="text/javascript">//<![CDATA[
+	<script type="text/javascript">/*<![CDATA[*/
 		var state = "'.(( ! $Game->paused) ? strtolower($Game->state) : 'paused').'";
 		var shots = '.$shots.';
 		var prev_shots = ['.implode(',', (array) $prev_shots).'];
@@ -148,7 +148,10 @@ $meta['head_data'] = '
 		var last_move = '.$Game->last_move.';
 		var my_turn = '.(( ! $Game->get_my_turn( ) || $no_turn) ? 'false' : 'true').';
 		var pre_hide_board = '.(($GLOBALS['Player']->pre_hide_board) ? 'true' : 'false').';
-	//]]></script>
+	/*]]>*/</script>
+';
+
+$meta['foot_data'] = '
 	<script type="text/javascript" src="scripts/game.js"></script>
 ';
 
@@ -202,5 +205,5 @@ echo get_header($meta);
 <?php
 
 call($GLOBALS);
-echo get_footer( );
+echo get_footer($meta);
 
