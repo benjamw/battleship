@@ -128,7 +128,7 @@ if ( ! defined('DEBUG')) {
 	}
 }
 
-$GLOBALS['_LOGGING'] = true; // do not change, rather, change debug value
+$GLOBALS['_LOGGING'] = DEBUG; // do not change, rather, change debug value
 
 if (Mysql::test( )) {
 	$Mysql = Mysql::get_instance( );
