@@ -23,7 +23,7 @@ $('div.active').on('click', 'div.first', function( ) {
 		board_storage = $this;
 		$this.replaceWith('<div class="noboard first panic" style="cursor:pointer;" title="Click to show board">HIDDEN</div>');
 	}
-}).css('cursor', 'pointer').attr('title', 'Click to hide board');
+}).find('div.first').css('cursor', 'pointer').attr('title', 'Click to hide board');
 
 // set the previous shots
 var id = 0;
