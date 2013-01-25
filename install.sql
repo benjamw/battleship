@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `bs2_settings` (
 -- Dumping data for table `bs2_settings`
 --
 
-INSERT INTO `settings` (`setting`, `value`, `notes`, `sort`) VALUES
+INSERT INTO `bs2_settings` (`setting`, `value`, `notes`, `sort`) VALUES
 ('site_name', 'Your Site Name', 'The name of your site', 10),
 ('default_color', 'c_blue_black.css', 'The default theme color for the script pages', 20),
 ('nav_links', '<a href="/">Home</a>', 'HTML code for your site''s navigation links to display on the script pages', 30),
