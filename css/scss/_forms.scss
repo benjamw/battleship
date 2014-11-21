@@ -1,4 +1,23 @@
 
+.formdiv {
+	float: left;
+}
+
+form + form {
+	clear: left;
+	margin-top: 1em;
+}
+
+.formdiv:before,
+.formdiv:after {
+	content: "";
+	display: table;
+}
+
+.formdiv:after {
+	clear: both;
+}
+
 .formdiv hr {
 	border: 0;
 	border-bottom: 2px solid #AAA;
