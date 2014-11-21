@@ -205,7 +205,7 @@ EOF;
 			<ul>
 				<li'.get_active('index').'><a href="index.php'.$GLOBALS['_?_DEBUG_QUERY'].'" title="(Your Turn | Your Games | Total Games)"'.(($allow_blink && $menu_data['my_turn']) ? ' class="blink"' : '').'>Games <span class="sep">(</span> '.$menu_data['my_turn'].' <span class="sep">|</span> '.$menu_data['my_games'].' <span class="sep">|</span> '.$menu_data['games'].' <span class="sep">)</span></a></li>
 				<li'.get_active('invite').'><a href="invite.php'.$GLOBALS['_?_DEBUG_QUERY'].'" title="(Received | Sent)"'.(($allow_blink && $menu_data['in_vites']) ? ' class="blink"' : '').'>Invitations <span class="sep">(</span> '.$menu_data['in_vites'].' <span class="sep">|</span> '.$menu_data['out_vites'].' <span class="sep">)</span></a></li>
-				<li'.get_active('messages').'><a href="messages.php'.$GLOBALS['_?_DEBUG_QUERY'].'" title="(New Messages | Total Messages)"'.(($allow_blink && $menu_data['new_msgs']) ? ' class="blink"' : '').'>Messages <span class="sep">(</span> '.$menu_data['new_msgs'].' <span class="sep">|</span> '.$menu_data['msgs'].' <span class="sep">)</span></a></li>
+				<li'.get_active('messages', 'read', 'send').'><a href="messages.php'.$GLOBALS['_?_DEBUG_QUERY'].'" title="(New Messages | Total Messages)"'.(($allow_blink && $menu_data['new_msgs']) ? ' class="blink"' : '').'>Messages <span class="sep">(</span> '.$menu_data['new_msgs'].' <span class="sep">|</span> '.$menu_data['msgs'].' <span class="sep">)</span></a></li>
 				<li'.get_active('stats').'><a href="stats.php'.$GLOBALS['_?_DEBUG_QUERY'].'">Statistics</a></li>
 				<li'.get_active('prefs').'><a href="prefs.php'.$GLOBALS['_?_DEBUG_QUERY'].'">Preferences</a></li>
 				<li'.get_active('profile').'><a href="profile.php'.$GLOBALS['_?_DEBUG_QUERY'].'">Profile</a></li>
@@ -338,10 +338,14 @@ function get_item($contents, $hint, $title = '', $extra_html = '') {
  * @return string HTML active class attribute (or empty string)
  */
 function get_active($value) {
+	$values = func_get_args( );
+
 	$self = substr(basename($_SERVER['SCRIPT_NAME']), 0, -4);
 
-	if ($value == $self) {
-		return ' class="active"';
+	foreach ($values as $value) {
+		if ($value == $self) {
+			return ' class="active"';
+		}
 	}
 
 	return '';

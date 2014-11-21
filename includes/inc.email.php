@@ -53,7 +53,7 @@ Your opponent, [[[opponent]]], in a last ditch effort to wipe your fleet from th
 
 Alas, in the confusion, [[[opponent]]] forgot to release the clamps holding the nuclear warheads to zee missiles, and you watch in amazement as the horizon flashes into a brilliant white light that rivals that of the sun and a ginormous mushroom cloud fills the sky.
 
-Years later, when the area is safe for human occupation again, a research team dives to the depths looking for the remains of the formerly great floatilla, and there, at the bottom of the ocean, they found [[[opponent]]], frozen in their last moments of stupid realization, immortalized in a charcoal facepalm.'),
+Centuries later, when the area is safe for human occupation again, a research team dives to the depths looking for the remains of the formerly great floatilla, and there, at the bottom of the ocean, they found [[[opponent]]], frozen in their last moments of stupid realization, immortalized in a charcoal facepalm.'),
 
 
 

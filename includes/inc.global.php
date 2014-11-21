@@ -27,7 +27,7 @@ if (get_magic_quotes_gpc( )) {
  * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 define('ROOT_DIR', dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR);
-define('INCLUDE_DIR', dirname(__FILE__).DIRECTORY_SEPARATOR);
+define('INCLUDE_DIR', ROOT_DIR.'includes'.DIRECTORY_SEPARATOR);
 define('CLASSES_DIR', ROOT_DIR.'classes'.DIRECTORY_SEPARATOR);
 define('GAMES_DIR', ROOT_DIR.'games'.DIRECTORY_SEPARATOR);
 define('LOG_DIR', ROOT_DIR.'logs'.DIRECTORY_SEPARATOR);
@@ -149,14 +149,10 @@ if (Mysql::test( )) {
 
 if (defined('DEBUG') && DEBUG) {
 	ini_set('display_errors','On');
-	error_reporting(E_ALL | E_STRICT); // all errors, notices, and strict warnings
+	error_reporting(-1); // all errors, notices, and strict warnings
 	if (isset($Mysql)) {
 		$Mysql->set_error(3);
 	}
-}
-else { // do not edit the following
-	ini_set('display_errors','Off');
-	error_reporting(E_ALL & ~ E_NOTICE); // show errors, but not notices
 }
 
 // log the player in

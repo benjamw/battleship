@@ -5,6 +5,7 @@
 
 *.epp
 *.err
+*.log
 
 .svn
 
