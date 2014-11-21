@@ -10,6 +10,7 @@
  * @action outputs var to screen
  * @return void
  */
+if ( ! function_exists('call')) {
 function call($var = 'Th&F=xUFucreSp2*ezAhe=ApuPR*$axe', $bypass = false, $show_from = true, $new_window = false, $error = false)
 {
 	if ((( ! defined('DEBUG') || ! DEBUG) || ! empty($GLOBALS['NODEBUG'])) && ! (bool) $bypass) {
@@ -97,7 +98,7 @@ function call($var = 'Th&F=xUFucreSp2*ezAhe=ApuPR*$axe', $bypass = false, $show_
 }
 function dump($var = 'Th&F=xUFucreSp2*ezAhe=ApuPR*$axe', $bypass = false, $show_from = true, $new_window = false, $error = false) { call($var, $bypass, $show_from, $new_window, $error); }
 function debug($var = 'Th&F=xUFucreSp2*ezAhe=ApuPR*$axe', $bypass = true, $show_from = true, $new_window = false, $error = false) { call($var, $bypass, $show_from, $new_window, $error); }
-
+}
 
 
 /** function load_class
