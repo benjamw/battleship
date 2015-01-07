@@ -28,7 +28,7 @@
 /* Table settings */
 /* -------------- */
 	$master_prefix = ''; // master database table prefix
-	$game_prefix   = 'bs_'; // game table name prefix
+	$game_prefix   = 'bs2_'; // game table name prefix
 
 	// note this table does not have the same prefix as the other tables
 	define('T_PLAYER'       , $master_prefix . 'player'); // the player data table (NOTE: THERE IS NO GAME PREFIX)

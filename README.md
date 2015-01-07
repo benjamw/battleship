@@ -8,12 +8,14 @@ INSTALLATION
 ----------------------------------
 1. Copy the /includes/config.php.sample file and rename to /inludes/config.php
 
-2. Edit the file to your specifications
+2. Edit the file to your specifications, taking note of the table prefixes.
 
 3. Upload all files to your server
 
 4. Run install.sql on your MySQL server (via phpMyAdmin or any other method)
 This will create the tables and insert some basic settings
+NOTE: make sure the table prefixes match the prefixes in your config file
+Optionally delete the install.sql file from your server when you are done
 
 5. Register your admin account
 
