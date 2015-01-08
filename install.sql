@@ -178,6 +178,7 @@ INSERT INTO `bs2_settings` (`setting`, `value`, `notes`, `sort`) VALUES
 ('default_pass', 'change!me', 'The password to use when resetting a user''s password', 100),
 ('expire_users', '45', 'Number of days until untouched games are deleted (0 = off)', 110),
 ('save_games', '1', '(1/0) Save games in the ''games'' directory on the server (0 = off)', 120),
+('expire_finished_games', '7', 'Number of days until finished games are deleted (0 = off)', 128),
 ('expire_games', '30', 'Number of days until untouched user accounts are deleted (0 = off)', 130),
 ('nudge_flood_control', '24', 'Number of hours between nudges. (-1 = no nudging, 0 = no flood control)', 135),
 ('timezone', 'UTC', 'The timezone to use for dates (<a href="http://www.php.net/manual/en/timezones.php">List of Timezones</a>)', 140),
